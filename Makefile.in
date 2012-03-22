@@ -250,6 +250,10 @@ gcc_install_target := install-gcc
 install-target-gcc-multilibs: stmp-install-canadian-tools
 	mkdir -p $(prefix)/lib/gcc/
 	rsync -a $(CANADIAN_ROOT)/install/lib/gcc/ $(prefix)/lib/gcc/
+	mkdir -p $(prefix)/arm-linux-androideabi/include/
+	mkdir -p $(prefix)/arm-linux-androideabi/lib/
+	rsync -a $(CANADIAN_ROOT)/install/arm-linux-androideabi/include/ $(prefix)/arm-linux-androideabi/include/
+	rsync -a $(CANADIAN_ROOT)/install/arm-linux-androideabi/lib/ $(prefix)/arm-linux-androideabi/lib/
 install-target-gcc-multilibs := install-target-gcc-multilibs
 
 # We add canadian_stmp dependency to rules that have no dependencies
